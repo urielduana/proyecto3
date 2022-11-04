@@ -1,14 +1,14 @@
 @extends('template')
 @section('content')
 
-    @if (session()->has('completed'))
-        {!! "<script>
+    @if (session('completed'))
+        <script>
                         Swal.fire(
                             'Good job!',
-                            'Book Registered!',
+                            'Book {{session('completed')['titleR'] }} Registered!',
                             'success'
                         )
-                        </script>" !!}
+                        </script>
     @endif
 
     <div class="container mt-5 mb-5 d-flex justify-content-center">
@@ -35,7 +35,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input name="title" class="form-control" type="text"placeholder="Title">
+                                <input name="title" class="form-control" type="text"placeholder="Title"
+                                value={{old('title')}}>
                                 <p class='card-title text-danger fst-italic fw-bold text-start'>{{ $errors->first('title') }}
                                 </p>
                             </div>
@@ -44,7 +45,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input name="author" class="form-control" type="text"placeholder="Author's Name">
+                                <input name="author" class="form-control" type="text"placeholder="Author's Name"
+                                value={{old('author')}}>
                                 <p class='card-title text-danger fst-italic fw-bold text-start'>
                                     {{ $errors->first('author') }}</p>
                             </div>
@@ -53,7 +55,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input name="pages" class="form-control" type="text" placeholder="No. Pages">
+                                <input name="pages" class="form-control" type="text" placeholder="No. Pages"
+                                value={{old('pages')}}>
                                 <p class='card-title text-danger fst-italic fw-bold text-start'>
                                     {{ $errors->first('pages') }}</p>
                             </div>
@@ -62,7 +65,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input name="editorial" class="form-control" type="text" placeholder="Editorial">
+                                <input name="editorial" class="form-control" type="text" placeholder="Editorial"
+                                value={{old('editorial')}}>
                                 <p class='card-title text-danger fst-italic fw-bold text-start'>
                                     {{ $errors->first('editorial') }}</p>
                             </div>
@@ -71,8 +75,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input name="editorialEmail" class="form-control"
-                                    type="text"placeholder="Editorial's Email">
+                                <input name="editorialEmail" class="form-control"type="text"placeholder="Editorial's Email"
+                                value={{old('editorialEmail')}}>
                                 <p class='card-title text-danger fst-italic fw-bold text-start'>
                                     {{ $errors->first('editorialEmail') }}</p>
                             </div>

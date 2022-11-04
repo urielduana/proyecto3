@@ -15,6 +15,7 @@ class ControladorLibreria extends Controller
     }
 
     public function RegisterBookController(registerBook $req){
-        return redirect('register')->with('completed', 'Book registered');
+        $titleR = $req->input('title');
+        return redirect()->route('r')->with('completed', compact('titleR'));
     }
 }
