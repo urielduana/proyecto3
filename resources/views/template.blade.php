@@ -33,9 +33,9 @@
                             Books
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-{{-- 
-                            <li><a class="dropdown-item" href="{{ route('book.index') }}">Check</a></li>
-                            <li><a class="dropdown-item" href="{{ route('book.create') }}">Register</a></li> --}}
+
+                            {{-- <li><a class="dropdown-item" href="{{ route('book.index') }}">Check</a></li> --}}
+                            <li><a class="dropdown-item" href="{{ route('book.create') }}">Register</a></li>
 
                         </ul>
                     </li>
@@ -46,8 +46,8 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
 
-                            {{-- <li><a class="dropdown-item" href="{{ route('customer.index') }}">Check</a></li>
-                            <li><a class="dropdown-item" href="{{ route('customer.create') }}">Register</a></li> --}}
+                            {{-- <li><a class="dropdown-item" href="{{ route('customer.index') }}">Check</a></li> --}}
+                            <li><a class="dropdown-item" href="{{ route('customer.create') }}">Register</a></li>
 
                         </ul>
                     </li>
