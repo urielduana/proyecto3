@@ -16,7 +16,7 @@
 
                 <div class="col-md-6 mb-4">
                     <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">News of the day</span>
-                    <h4><strong>Noticia de Libros Chidos</strong></h4>
+                    <h4><strong>Oprah's New</strong></h4>
                     <p class="text-muted">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
                         eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
