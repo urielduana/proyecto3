@@ -24,7 +24,7 @@ class registerBook extends FormRequest
     public function rules()
     {
         return [
-            'isbn' => 'required|int',
+            'isbn' => 'required|min_digits:13|numeric',
             'title' => 'required',
             'author' => 'required',
             'pages' => 'required|int',

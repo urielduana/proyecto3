@@ -25,7 +25,7 @@ class registerCustomer extends FormRequest
     {
         return [
             'customerEmail' => 'required|email',        
-            'ine' => 'required|numeric|min:10|min_digits:10', 
+            'ine' => 'required|numeric|min_digits:10', 
             'customerName' => 'required|string|min:4',
         
 
