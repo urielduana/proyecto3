@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('Id_customer');
             $table->string('Name');
             $table->string('Customer_email');
-            $table->integer('ine');
+            $table->biginteger('ine');
             $table->timestamps();
         });
     }

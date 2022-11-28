@@ -1,16 +1,16 @@
 @extends('template')
 @section('content')
 
-    @if (session('completed'))
-
-<div class="alert alert-success alert-dismissible fade show" role="alert">Customer   {{ session('completed')['nameOut'] }}  Registered   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
-
+    @if (session('confirmacionregistro'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">Customer
+            {{ session('confirmacionregistro')['name'] }} Registered <button type="button" class="btn-close" data-bs-dismiss="alert"
+                aria-label="Close"></button></div>
     @endif
 
     <div class="container mt-5 mb-5 d-flex justify-content-center">
         <div class="card px-5 py-4">
             <div class="card-body">
-                <form action="registerCustomerFilter" method="POST">
+                <form action="{{ route('customer.store') }}" method="POST">
 
                     @csrf
 

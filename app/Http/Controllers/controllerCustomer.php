@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\registerCustomer;
+use DB;
+use Carbon\Carbon;
 
 class controllerCustomer extends Controller
 {
@@ -32,9 +35,17 @@ class controllerCustomer extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(registerCustomer $request)
     {
-
+        DB::table('tb_customer')->insert([
+            "Name"=>$request->input('customerName'),
+            "Customer_email"=>$request->input('customerEmail'),
+            "ine"=>$request->input('ine'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now()
+        ]);
+        $name = $request->input('Name');
+        return redirect('customer/create')->with('confirmacionregistro', compact('name'));     
     }
 
     /**

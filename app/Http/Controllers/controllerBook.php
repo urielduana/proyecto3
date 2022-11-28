@@ -16,7 +16,8 @@ class controllerBook extends Controller
      */
     public function index()
     {
-
+        $selectBook = DB::table('tb_book')->get();
+        return view('bookIndex', compact('selectBook'));
     }
 
     /**
