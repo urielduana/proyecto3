@@ -16,7 +16,8 @@ class controllerCustomer extends Controller
      */
     public function index()
     {
-
+        $selectCustomer = DB::table('tb_customer')->get();
+        return view('customerIndex', compact('selectCustomer'));
     }
 
     /**
@@ -90,6 +91,7 @@ class controllerCustomer extends Controller
      */
     public function destroy($id)
     {
-
+        DB::table('tb_customer')->where('id_customer', $id)->delete();
+        return redirect('customer/index')->with('confirmacioneliminar', "a");
     }
 }

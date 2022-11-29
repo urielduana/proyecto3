@@ -94,6 +94,7 @@ class controllerBook extends Controller
      */
     public function destroy($id)
     {
-
+        DB::table('tb_book')->where('id_book', $id)->delete();
+        return redirect('book/index')->with('confirmacioneliminar', "a");
     }
 }

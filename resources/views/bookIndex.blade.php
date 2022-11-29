@@ -1,5 +1,6 @@
 @extends('template')
 @section('content')
+@include('modalDeleteBook')
 
     <div class="d-flex justify-content-center m-3 flex-wrap">
         @foreach ($selectBook as $consulta)
@@ -21,9 +22,9 @@
                     <li class="list-group-item"><b>Editorial Email: </b>{{ $consulta->Editorial_email}}</li>
 
                 </ul>
-                <div class="card-body">
-                    <button type="button" class="btn btn-dark">Editar</button>
-                    <button type="button" class="btn btn-danger">Eliminar</button>
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-dark" >Edit</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{$consulta->Id_book}}">Delete</button>
                 </div>
             </div>
         @endforeach
