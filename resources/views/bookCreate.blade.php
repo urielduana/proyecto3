@@ -18,6 +18,7 @@
                 <form action="{{ route('book.store') }}" method="POST">
 
                     @csrf
+                    <h2 class="card-title mb-3">Book Register</h6>
 
 
                     <h6 class="card-title mb-3">Introduce ISBN of your book</h6>

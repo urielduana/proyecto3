@@ -1,29 +1,34 @@
 @extends('template')
 @section('content')
 
-<div class="d-flex justify-content-center m-3 flex-wrap">
-    <div class="card bg-light" style="width: 18rem;">
-        <div class="d-flex justify-content-center p-3">
-            <img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2017/png/iconmonstr-book-27.png&r=0&g=0&b=0" alt="" width="30%">
-        </div>
-        <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text">ISBN:</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Author: </li>
-            <li class="list-group-item">No Pages: </li>
-            <li class="list-group-item">Editorial: </li>
-            <li class="list-group-item">Editorial Email: </li>
+    <div class="d-flex justify-content-center m-3 flex-wrap">
+        @foreach ($selectBook as $consulta)
+            @csrf
+            {!! method_field('PUT') !!}
+            <div class="card bg-light m-3 rounded-lg border-gray border-2" style="width: 18rem;">
+                <div class="d-flex justify-content-center p-3">
+                    <img src="https://iconmonstr.com/wp-content/g/gd/makefg.php?i=../releases/preview/2017/png/iconmonstr-book-27.png&r=0&g=0&b=0"
+                        alt="" width="30%">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-1">{{ $consulta->Title}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>ISBN: </b>{{ $consulta->Isbn}}</li>
+                    <li class="list-group-item"><b>Author: </b>{{ $consulta->Author}}</li>
+                    <li class="list-group-item"><b>No Pages: </b>{{ $consulta->Number_page}}</li>
+                    <li class="list-group-item"><b>Editorial: </b>{{ $consulta->Editorial_name}}</li>
+                    <li class="list-group-item"><b>Editorial Email: </b>{{ $consulta->Editorial_email}}</li>
 
-        </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
+                </ul>
+                <div class="card-body">
+                    <button type="button" class="btn btn-dark">Editar</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </div>
+            </div>
+        @endforeach
+
+
     </div>
-    
-    
-</div>    
 
 @stop

@@ -15,7 +15,7 @@
                     @csrf
 
 
-                    <h2 class="card-title mb-3">Customer's Register</h6>
+                    <h2 class="card-title mb-3">Customer Register</h6>
 
             </div>
             <h6 class="information mt-4">Fill the next info of the customer</h6>
