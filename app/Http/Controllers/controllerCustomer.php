@@ -68,7 +68,8 @@ class controllerCustomer extends Controller
      */
     public function edit($id)
     {
-
+        $consultaId = DB::table('tb_customer')->where('Id_customer', $id)->first();
+        return view('customerEdit', compact('consultaId'));
     }
 
     /**
@@ -78,9 +79,15 @@ class controllerCustomer extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(registerCustomer $request, $id)
     {
-
+        DB::table('tb_customer')->where('Id_customer', $id)->update([
+            "Name"=>$request->input('customerName'),
+            "Customer_email"=>$request->input('customerEmail'),
+            "ine"=>$request->input('ine'),
+            "updated_at"=>Carbon::now()
+        ]);
+        return redirect('customer/index')->with('confirmacioneditar', "tu recuerdo se guardo");
     }
 
     /**

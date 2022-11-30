@@ -1,6 +1,29 @@
 @extends('template')
 @section('content')
     @include('modalDeleteCustomer')
+    @if (session()->has('confirmacioneliminar'))
+    {!! "<script>
+            Swal.fire(
+                'Deleted!',
+                'Customer Deleted',
+                'success'
+                
+            )
+            </script>" !!}
+@endif
+
+@if (session()->has('confirmacioneditar'))
+{!! "<script>
+        Swal.fire(
+            'Updated!',
+            'Customer Updated',
+            'success'
+        )
+        </script>" !!}
+@endif
+<div class="d-flex justify-content-center"><h1 class="card-title m-3 ">Customer Data</h1></div>
+<div class="d-flex justify-content-center"><a href="{{ route('customer.create') }}" class="btn btn-warning mt-4 text-white p-3">Add Customer</a></div>
+
 
     <div class="d-flex justify-content-center m-3 flex-wrap">
         @foreach ($selectCustomer as $consulta)
@@ -19,7 +42,7 @@
                             <li class="list-group-item"><b>Email: </b>{{ $consulta->Customer_email }}</li>
                             <li class="list-group-item"><b>INE: </b>{{ $consulta->ine }}</li>
                             <div class="card-body text-center">
-                                <button type="button" class="btn btn-dark">Edit</button>
+                                <a href="{{ route('customer.edit', $consulta->Id_customer) }}"><button type="button" class="btn btn-dark">Edit</button></a>
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal{{ $consulta->Id_customer }}">Delete</button>
                             </div>

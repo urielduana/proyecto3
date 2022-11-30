@@ -71,7 +71,8 @@ class controllerBook extends Controller
      */
     public function edit($id)
     {
-
+        $consultaId = DB::table('tb_book')->where('Id_book', $id)->first();
+        return view('bookEdit', compact('consultaId'));
     }
 
     /**
@@ -81,9 +82,18 @@ class controllerBook extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(registerBook $request, $id)
     {
-
+        DB::table('tb_book')->where('Id_book', $id)->update([
+            "Isbn"=>$request->input('isbn'),
+            "Title"=>$request->input('title'),
+            "Author"=>$request->input('author'),
+            "Number_page"=>$request->input('pages'),
+            "Editorial_name"=>$request->input('editorial'),
+            "Editorial_email"=>$request->input('editorialEmail'),
+            "updated_at"=>Carbon::now()
+        ]);
+        return redirect('book/index')->with('confirmacioneditar', "tu recuerdo se guardo");
     }
 
     /**
